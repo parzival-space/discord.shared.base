@@ -12,6 +12,7 @@ sudo apt install maven -y
 
 echo "Enforcing Java $javaVersion..."
 sudo update-alternatives --set java $(update-alternatives --list java | grep java-$javaVersion)
+export JAVA_HOME=/usr/lib/jvm/java-$javaVersion-openjdk-amd64
 mvn --version
 
 echo "Downloading Certificate..."

@@ -1,9 +1,18 @@
 #!/bin/bash
 # This script will run the build.
 
-echo "Installing Maven..."
+javaVersion=17
+
+echo "Updating System..."
 sudo apt update
+
+echo "Installing Java & Maven..."
+sudo apt install openjdk-$javaVersion-jdk openjdk-$javaVersion-jre -y
 sudo apt install maven -y
+
+echo "Enforcing Java $javaVersion..."
+sudo update-alternatives --set java $(update-alternatives --list java | grep java-$javaVersion)
+mvn --version
 
 echo "Downloading Certificate..."
 echo -n \

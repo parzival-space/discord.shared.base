@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import jakarta.annotation.Nullable;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
@@ -52,13 +51,9 @@ public abstract class Command {
      * @param description The description of the command.
      * @param options Options for the command.
      */
-    protected Command(@Nonnull String name, @Nonnull String description, @Nullable List<OptionData> options) {
+    protected Command(@Nonnull String name, @Nonnull String description) {
         this.name = name;
         this.description = description;
-
-        if (options != null) {
-            this.options = options;
-        }
     }
 
     /**

@@ -14,7 +14,11 @@ import space.parzival.discord.shared.base.types.Command;
 public class FakeCommand extends Command {
 
     public FakeCommand(String name, String description, List<OptionData> options) {
-        super(name, description, options);
+        super(name, description);
+
+        if (options != null) {
+            super.options.addAll(options);
+        }
     }
 
     @Override
